@@ -55,6 +55,7 @@ void UTestSubsystem::Draw(UCanvas* InCanvas, APlayerController* InPC)
 		playerInfoText += FString::Printf(TEXT("PlayerState:%s\n"), IsValid(playerInfo.PlayerState) ? *(playerInfo.PlayerState->GetActorNameOrLabel()) : TEXT("IsValid() false"));
 		playerInfoText += FString::Printf(TEXT("Controller:%s\n"), IsValid(playerInfo.Controller) ? *(playerInfo.Controller->GetActorNameOrLabel()) : TEXT("IsValid() false"));
 		playerInfoText += FString::Printf(TEXT("Pawn:%s\n"), IsValid(playerInfo.Pawn) ? *(playerInfo.Pawn->GetActorNameOrLabel()) : TEXT("IsValid() false"));
+		playerInfoText += TEXT("\n");
 	}
 
 	if (playerInfoText.IsEmpty())
@@ -73,7 +74,7 @@ void UTestSubsystem::Draw(UCanvas* InCanvas, APlayerController* InPC)
 			TEXT("NM_Client"),
 		};
 	
-		displayText += FString::Printf(TEXT("%s\n"), NETMODE_STRING[GetWorld()->GetNetMode()]);
+		displayText += FString::Printf(TEXT("%s\n\n"), NETMODE_STRING[GetWorld()->GetNetMode()]);
 	}
 	
 	displayText += playerInfoText;
