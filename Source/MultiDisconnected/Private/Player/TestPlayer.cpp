@@ -6,6 +6,7 @@
 #include "TestDefine.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "DrawDebugHelpers.h"
+#include "System/TestSubsystem.h"
 
 ATestPlayer::ATestPlayer()
 {
@@ -33,6 +34,40 @@ void ATestPlayer::BeginPlay()
 void ATestPlayer::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	// プレイヤー情報をリストに追加する
+	do
+	{
+		if (m_isAddPlayerInfo) {
+			break;
+		}
+
+		APlayerState* playerState = GetPlayerState();
+
+		if (!playerState)
+		{
+			break;
+		}
+
+		UTestSubsystem* testSubsystem = GetWorld()->GetSubsystem<UTestSubsystem>();
+
+		if (!testSubsystem)
+		{
+			break;
+		}
+
+		FPlayerInfo playerInfo{};
+
+		playerInfo.PlayerId = playerState->GetPlayerId();
+		playerInfo.PlayerState = playerState;
+		playerInfo.Controller = Controller;
+		playerInfo.Pawn = this;
+
+		testSubsystem->AddPlayer(playerInfo);
+
+		m_isAddPlayerInfo = true;
+
+	} while (false);
 
 	DebugDisplay();
 	DebugLog();

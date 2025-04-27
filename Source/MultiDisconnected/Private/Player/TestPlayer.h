@@ -31,4 +31,7 @@ private:
 
 	UFUNCTION(Server, Reliable)
 	void Server_Respawn();
+
+private:
+	bool m_isAddPlayerInfo;
 };
