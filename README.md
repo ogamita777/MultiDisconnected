@@ -1,6 +1,6 @@
 # MultiDisconnected
 ## 概要
-UnrealEngineでプレイヤーが切断したときにどうなるかの検証用プロジェクトです。
+UnrealEngineでプレイヤーが接続を切断したときにどうなるかの検証用プロジェクトです。
 
 ## 環境
 - UnrealEngine 5.5.4
