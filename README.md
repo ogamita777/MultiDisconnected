@@ -1,6 +1,8 @@
 # MultiDisconnected
 ## 概要
-UnrealEngineでプレイヤーが接続を切断したときにどうなるかの検証用プロジェクトです。
+UnrealEngineでプレイヤーが接続を切断したときの挙動を検証するためのプロジェクトです。
+
+[【UE5】マルチプレイにおいてプレイヤーが接続を切断したときの挙動 #UnrealEngine - Qiita](https://qiita.com/ogamita777/items/3f844f365d103c8b783b) に検証内容を投稿いたしております。
 
 ## 環境
 - UnrealEngine 5.5.4
