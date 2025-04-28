@@ -3,6 +3,8 @@
 #include "Debug/DebugDrawService.h"
 #include "Engine/EngineBaseTypes.h"
 
+#include "GameMapsSettings.h"
+
 UTestSubsystem::UTestSubsystem()
 {
 	static ConstructorHelpers::FObjectFinder<UFont> font(TEXT("/Engine/EngineFonts/Roboto"));
@@ -16,6 +18,9 @@ void UTestSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 	if (drawDebugDelegate.IsBound()) {
 		this->DrawDebugDelegate = UDebugDrawService::Register(TEXT("GameplayDebug"), drawDebugDelegate);
 	}
+
+	// ↓のコメントアウトを外すと ListenServerの接続が切断されたときにClient環境はTestMapに遷移する
+	// UGameMapsSettings::SetGameDefaultMap(TEXT("/Game/Maps/TestMap"));
 }
 
 void UTestSubsystem::Deinitialize()

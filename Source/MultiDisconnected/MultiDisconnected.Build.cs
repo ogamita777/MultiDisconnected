@@ -8,7 +8,15 @@ public class MultiDisconnected : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
+		PublicDependencyModuleNames.AddRange(
+			new string[] {
+				"Core",
+				"CoreUObject",
+				"Engine",
+				"InputCore",
+				"EnhancedInput",
+				"EngineSettings", // UGameMapsSettings::SetGameDefaultMap() を利用するために必要
+			});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
